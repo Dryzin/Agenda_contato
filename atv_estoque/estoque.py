@@ -19,7 +19,7 @@ class main:
                     function1.alterar()
 
                 elif entrada == '5':
-                    function1.mov()
+                    function2.mov()
 
                 elif entrada == '':
                     function1.listar_prod()
@@ -74,11 +74,16 @@ class Inf:
 class Estoque:
 
     def __init__(self):
-        self.listaProdutos = Func()
+        self.ent = Func()
 
     def mov(self):
-        for i in range(len(self.listaProdutos)):
+        for i in range(len(self.ent.listaProdutos)):
+            self.ent.listaProdutos[i].quant
             x= i+1
         print("Total de movimentaçõe de entrada: ",x)
 
 menu = main()
+
+obj = Estoque()
+
+obj.ent.listaProdutos[0].cod
