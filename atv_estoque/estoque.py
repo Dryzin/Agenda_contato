@@ -1,6 +1,7 @@
 class main:
     def __init__(self):
         function1 = Func()
+        function2 = Estoque()
 
         while True:
                 entrada = input('\n1 - Cadastrar\n2 - Listar Todos\n3 - Procurar Produto\n4 - Alterar Produto\n5 - Mov.Entrada\n0 - Sair\n')
@@ -19,6 +20,9 @@ class main:
 
                 elif entrada == '5':
                     function1.mov()
+
+                elif entrada == '':
+                    function1.listar_prod()
 
                 elif entrada == '0':
                     break
@@ -53,10 +57,10 @@ class Func:
                 self.listaProdutos[x].desc = input('Digite a nova descrição: ')
 
 
-    def mov(self):
+    '''def mov(self):
         for i in range(len(self.listaProdutos)):
             x= i+1
-        print("Total de movimentaçõe de entrada: ",x)
+        print("Total de movimentaçõe de entrada: ",x)'''
 
 
 
@@ -67,12 +71,14 @@ class Inf:
         self.fabricante = input("Informe fabricante: ")
         self.quant = input("Informe a quantidade: ")
 
-'''class entrada:
+class Estoque:
+
+    def __init__(self):
+        self.listaProdutos = Func()
 
     def mov(self):
         for i in range(len(self.listaProdutos)):
             x= i+1
         print("Total de movimentaçõe de entrada: ",x)
-    
 
-menu = main()'''
+menu = main()
