@@ -1,10 +1,11 @@
 class main:
     def __init__(self):
         function1 = Func()
-        function2 = Estoque()
+        function2 = Compra()
+        function2.ent = function1
 
         while True:
-                entrada = input('\n1 - Cadastrar\n2 - Listar Todos\n3 - Procurar Produto\n4 - Alterar Produto\n5 - Mov.Entrada\n0 - Sair\n')
+                entrada = input('\n1 - Cadastrar\n2 - Listar Todos\n3 - Procurar Produto\n4 - Alterar Produto\n5 - Mov.Entrada\n6 - Mov.Saída\n0 - Sair\n')
 
                 if entrada == '1':
                     function1.salvar_prod()
@@ -20,6 +21,9 @@ class main:
 
                 elif entrada == '5':
                     function2.mov()
+
+                elif entrada == '6':
+                    function2.said()
 
                 elif entrada == '':
                     function1.listar_prod()
@@ -57,33 +61,50 @@ class Func:
                 self.listaProdutos[x].desc = input('Digite a nova descrição: ')
 
 
-    '''def mov(self):
-        for i in range(len(self.listaProdutos)):
-            x= i+1
-        print("Total de movimentaçõe de entrada: ",x)'''
-
-
 
 class Inf:
     def __init__(self):
-        self.cod = input("Informe codigo: ")
+        self.cod = int(input("Informe codigo: "))
         self.desc = input("Informe nome: ")
         self.fabricante = input("Informe fabricante: ")
-        self.quant = input("Informe a quantidade: ")
+        self.quant = int(input("Informe a quantidade: "))
 
-class Estoque:
+        '''self.fabricante = objeto.nome'''
+
+class Compra:
 
     def __init__(self):
         self.ent = Func()
 
     def mov(self):
+
+        num = int(input('Cod do produto: '))
+
         for i in range(len(self.ent.listaProdutos)):
-            self.ent.listaProdutos[i].quant
-            x= i+1
-        print("Total de movimentaçõe de entrada: ",x)
+            print(self.ent.listaProdutos[i].cod)
+            if num == self.ent.listaProdutos[i].cod:
+                self.ent.listaProdutos[i].quant += int(input("Informe a quantidade comprada: "))
+            
+            else:
+                print("ERRO")
+        
+
+    def said(self):
+
+        num = int(input('Cod do produto: '))
+
+        for i in range(len(self.ent.listaProdutos)):
+            print(self.ent.listaProdutos[i].cod)
+            if num == self.ent.listaProdutos[i].cod:
+                self.ent.listaProdutos[i].quant -= int(input("Informe a quantidade comprada: "))
+            
+            else:
+                print("ERRO")
+
+class Fabricante:
+    def __init__(self):
+        self.cod_f = input("Informe codigo do Fabricante: ")
+        self.desc_f = input("Informe nome do Fabricante: ")
+
 
 menu = main()
-
-obj = Estoque()
-
-obj.ent.listaProdutos[0].cod
