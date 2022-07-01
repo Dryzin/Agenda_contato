@@ -1,3 +1,6 @@
+from cmath import inf
+
+
 class main:
     def __init__(self):
         function1 = Func()
@@ -66,10 +69,8 @@ class Inf:
     def __init__(self):
         self.cod = int(input("Informe codigo: "))
         self.desc = input("Informe nome: ")
-        self.fabricante = input("Informe fabricante: ")
+        '''self.fabricante = objeto.nome_f'''
         self.quant = int(input("Informe a quantidade: "))
-
-        '''self.fabricante = objeto.nome'''
 
 class Compra:
 
@@ -102,9 +103,9 @@ class Compra:
                 print("ERRO")
 
 class Fabricante:
+
     def __init__(self):
         self.cod_f = input("Informe codigo do Fabricante: ")
-        self.desc_f = input("Informe nome do Fabricante: ")
-
+        self.nome_f = input("Informe nome do Fabricante: ")
 
 menu = main()
