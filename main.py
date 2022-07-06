@@ -1,4 +1,3 @@
-from agenda import*
 from classe_menu import*
 
 #agenda1 = Agenda()

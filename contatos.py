@@ -1,9 +1,9 @@
 class Contato:
     # metodo(argumentos)
-    def __init__(self):
-        self.cod = input("Informe codigo: ")
-        self.nome = input("Informe nome: ")
-        self.telefone = input("Informe Telefone: ")
+    def __init__(self, cod, nome, telefone):
+        self.cod = cod
+        self.nome = nome
+        self.telefone = telefone
         
         print("Objeto Criado com sucesso")
 
