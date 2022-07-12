@@ -21,3 +21,9 @@ select * from Estoque;
 
 select * from Estoque
 where id = '2';'''
+
+#Criar nova tabela para fornecedor e relacionar com Tabela produto
+
+#Iniciar tkinter
+
+#Diagrama
