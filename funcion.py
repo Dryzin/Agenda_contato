@@ -4,14 +4,14 @@ class Funcion:
     def __init__(self):
         self.listaContatos = []
     
-    def salvar_contatos(self):
+    def salvar_produtos(self):
         self.listaContatos.append(inf())
 
-    def listar_contatos(self):
+    def listar_produtos(self):
         for i in range(len(self.listaContatos)):
             print('\nCódigo -',self.listaContatos[i].cod,'\nNome -', self.listaContatos[i].nome,'\nQuantidade: -',self.listaContatos[i].quant,'\n')
 
-    def mudar_contato(self):
+    def mudar_produtos(self):
         b = input("Informe o código do número de mudança: ")
 
         for x in range(len(self.listaContatos)):

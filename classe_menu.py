@@ -13,22 +13,22 @@ class Menu:
                 nome = input('Nome do produto: ')
                 quant = input('Quantidade: ')
 
-                function.salvar_contatos(cod, nome, quant)
+                function.salvar_produtos(cod, nome, quant)
 
 
             elif entrada == '2':
-                function.listar_contatos()
+                function.listar_produtos()
 
             elif entrada == '3':
                 cod = input('Informe cod: ')
                 nome = input('Novo nome do produto: ')
                 atributo = 'nome' # Atributo lá da tabela o nome do q vai ser mudado
-                function.alterar_contatos(atributo, nome, cod)
+                function.alterar_produtos(atributo, nome, cod)
 
             elif entrada == '4':
                 cod = input('Informe cod: ')
                 atributo = 'Estoque' # Atributo lá da tabela o nome do q vai ser mudado
-                function.excluir_contato(cod)
+                function.excluir_produtos(cod)
 
             elif entrada == '0':
                 break
