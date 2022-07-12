@@ -11,6 +11,14 @@ class Funcion:
         for i in range(len(self.listaContatos)):
             print('\nCódigo -',self.listaContatos[i].cod,'\nNome -', self.listaContatos[i].nome,'\nQuantidade: -',self.listaContatos[i].quant,'\n')
 
+    def procurar(self):
+        b = input("\nInforme o código do Produto: ")
+        for x in range(len(self.listaContatos)):
+            if b == self.listaContatos[x].cod:
+                print(self.listaContatos[x].cod," - ",self.listaContatos[x].desc, "-", self.listaContatos[x].quant)
+            else:
+                pass
+
     def mudar_produtos(self):
         b = input("Informe o código do número de mudança: ")
 

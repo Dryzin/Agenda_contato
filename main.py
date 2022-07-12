@@ -7,14 +7,17 @@ from classe_menu import*
 
 menu = Menu()
 
-#create database agenda;
-#use agenda;
+'''create database BDA_Estoque;
+use BDA_Estoque;
 
-#create table Contatos(
-#id int auto_increment,
-#nome varchar(70) not null,
-#telefone varchar(12) not null,
-#primary key (id)
-#);
+create table Estoque(
+id int auto_increment,
+nome varchar(70) not null,
+quant varchar(12) not null,
+primary key (id)
+);
 
-#select * from Contatos;
+select * from Estoque;
+
+select * from Estoque
+where id = '2';'''

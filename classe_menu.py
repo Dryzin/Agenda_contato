@@ -6,7 +6,7 @@ class Menu:
 
 
         while True:
-            entrada = input('1 - Cadastrar\n2 - Listar \n3 - Atualizar informações\n4 - Excluir \n0 - Sair\n')
+            entrada = input('1 - Cadastrar\n2 - Listar Produtos \n3 - Atualizar Descrição\n4 - Procurar Produto \n5 - Excluir \n0 - Sair\n')
 
             if entrada == '1':
                 cod = None
@@ -26,6 +26,10 @@ class Menu:
                 function.alterar_produtos(atributo, nome, cod)
 
             elif entrada == '4':
+                cod = input('Informe cod: ')
+                function.procurar(cod)
+
+            elif entrada == '5':
                 cod = input('Informe cod: ')
                 atributo = 'Estoque' # Atributo lá da tabela o nome do q vai ser mudado
                 function.excluir_produtos(cod)

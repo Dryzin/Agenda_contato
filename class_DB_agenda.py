@@ -32,6 +32,13 @@ class DBAestoque:
 
         # neste caso apenas troca o nome
 
+    def procurar(self, cod):
+        comando_sql = f'select * from Estoque where id = {cod}'
+        self.meu_cursor.execute(comando_sql)
+        lista = self.meu_cursor.fetchall()
+        for i in lista:
+            print(i)
+
     def excluir_produtos(self, cod):
         comando_sql = f'delete from Estoque where id = {cod}'
         self.meu_cursor.execute(comando_sql)
