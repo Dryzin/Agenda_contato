@@ -21,13 +21,13 @@ class Menu:
 
             elif entrada == '3':
                 cod = input('Informe cod: ')
-                nome = input('Nome do produto: ')
-                atributo = 'Contatos' # Atributo lá da tabela o nome do q vai ser mudado
+                nome = input('Novo nome do produto: ')
+                atributo = 'nome' # Atributo lá da tabela o nome do q vai ser mudado
                 function.alterar_contatos(atributo, nome, cod)
 
             elif entrada == '4':
                 cod = input('Informe cod: ')
-                atributo = 'Contatos' # Atributo lá da tabela o nome do q vai ser mudado
+                atributo = 'Estoque' # Atributo lá da tabela o nome do q vai ser mudado
                 function.excluir_contato(cod)
 
             elif entrada == '0':

@@ -7,8 +7,8 @@ class DBAestoque:
         self.conexao = mysql.connector.connect(
             host="localhost",
             user='root',
-            password="q1w2e3",
-            database='agenda'
+            password="Dryq1w2e3$",
+            database='BDA_Estoque'
         )
         self.meu_cursor = self.conexao.cursor()
 
