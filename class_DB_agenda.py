@@ -1,5 +1,5 @@
 import mysql.connector
-from Informacoes import inf
+from Informacoes import Fabricante, inf
 
 
 class DBAestoque:
@@ -12,14 +12,20 @@ class DBAestoque:
         )
         self.meu_cursor = self.conexao.cursor()
 
-    def salvar_produtos(self, cod, nome, quant):
-        objcontato = inf(cod, nome, quant)
-        comando_sql = f'insert into Estoque (nome, quant) value ("{objcontato.nome}", "{objcontato.quant}")'
+    def salvar_produtos(self, cod, nome, fabr, quant):
+        objcontato = inf(cod, nome, fabr,quant)
+        comando_sql = f'insert into Estoque (nome, fabricante, quant) value ("{objcontato.nome}", "{objcontato.fabr}", "{objcontato.quant}")'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
 
-    def listar_produtos(self):
-        comando_sql = f'select * from Estoque'
+    def salva_fabricante(self, cod, nome, cnpj, local):
+        obj_fabricante = Fabricante(cod, nome, cnpj, local)
+        sql = f'insert into Fabricante (nome, cnpj, endereço) value ("{obj_fabricante.nome}", "{obj_fabricante.cnpj}", "{obj_fabricante.local}")'
+        self.meu_cursor.execute(sql)
+        self.conexao.commit()
+
+    def listar_produtos(self, atributo):
+        comando_sql = f'select * from {atributo}'
         self.meu_cursor.execute(comando_sql)
         lista = self.meu_cursor.fetchall()
         for i in lista:
