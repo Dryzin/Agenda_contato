@@ -1,5 +1,4 @@
 from tkinter import *
-from unicodedata import numeric
 from class_DB_agenda import *
 #criar janela
 
@@ -8,6 +7,10 @@ fr1 = Frame(root)
 fr2 = Frame(root)
 fr3 = Frame(root)
 fr4 = Frame(root)
+fr5 = Frame(root)
+fr6 = Frame(root)
+fr7 = Frame(root)
+fr8 = Frame(root)
 
 #geometria
 root.geometry('230x180')
@@ -29,7 +32,17 @@ def salvarFabricante() :
     local = ent3.get()
     function.salva_fabricante(cod, nome, cnpj, local)
 
+def listar():
+    atributo = 'Estoque'
+    list1= function.listar_produtos(atributo)
+    for i in list1:
+        lb1['text'] += str(i[0]) + ' ' + str(i[1]) + '\n'
 
+def listar2():
+    atributo = 'Fabricante'
+    list1= function.listar_produtos(atributo)
+    for i in list1:
+        lb1['text'] += str(i[0]) +  str(i[1]) + '\n'
 
 root.grid_rowconfigure(0,  weight=1)
 root.grid_rowconfigure(1,  weight=1)
@@ -45,15 +58,13 @@ root.grid_columnconfigure(2, weight=1)
 root.grid_columnconfigure(3, weight=1)
 
 
-
-
 fr1.grid(row=1, column=0, sticky=NSEW)
 
 #criar os widgets
 
 lb1 = Label(fr1, text='Estrutura')
 bt1 = Button(fr1, text='Cadastro', command = lambda: [fr1.grid_remove(), fr2.grid(row=0, column=1)])
-bt2 = Button(fr1, text='Listar')
+bt2 = Button(fr1, text='Listar', command = lambda: [fr1.grid_remove(), fr5.grid(row=0, column=1)])
 bt3 = Button(fr1, text='Atualizar descrição')
 bt4 = Button(fr1, text='Procurar Produto')
 bt5 = Button(fr1, text='Excluir')
@@ -136,6 +147,20 @@ lb4.grid(row=5, column=1, sticky=NSEW)
 ent3.grid(row=5, column=2, sticky=NSEW)
 
 bt1.grid(row=6, column=1, sticky=NSEW)
+
+#frame 5
+
+lb1 = Label(fr5, text='')
+bt1 = Button(fr5, text='Listar Produtos', command= listar)
+bt2 = Button(fr5, text='Listar Fabricantes', command= listar2)
+
+#organizar os widgets 5
+
+bt1.grid(row=1, column=1, sticky=NSEW)
+bt2.grid(row=1, column=2, sticky=NSEW)
+lb1.grid(row=3, column=1, sticky=NSEW)
+
+
 
 #executar a janela
 root.mainloop()

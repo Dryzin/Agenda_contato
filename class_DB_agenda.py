@@ -30,6 +30,7 @@ class DBAestoque:
         lista = self.meu_cursor.fetchall()
         for i in lista:
             print(i)
+        return lista
 
     def alterar_produtos(self, atributo, valor, cod):
         comando_sql = f'update Estoque set {atributo} = "{valor}" where id = {cod}'
