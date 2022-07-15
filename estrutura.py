@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter.ttk import Style
 from class_DB_agenda import *
 #criar janela
 
@@ -11,9 +12,10 @@ fr5 = Frame(root)
 fr6 = Frame(root)
 fr7 = Frame(root)
 fr8 = Frame(root)
+fr9 = Frame(root)
 
 #geometria
-root.geometry('230x180')
+root.geometry('250x200')
 
 function = DBAestoque()
 
@@ -36,13 +38,15 @@ def listar():
     atributo = 'Estoque'
     list1= function.listar_produtos(atributo)
     for i in list1:
-        lb1['text'] += str(i[0]) + ' ' + str(i[1]) + '\n'
+        lb1_3['text'] += 'Cod: ' + str(i[0]) + ' ' + 'Prod: ' +str(i[1]) + '\n'
+    return list1
 
 def listar2():
     atributo = 'Fabricante'
     list1= function.listar_produtos(atributo)
     for i in list1:
-        lb2['text'] += str(i[0]) +  str(i[1]) + '\n'
+        lb2_3['text'] += 'Cod: ' + str(i[0]) + ' ' + 'Fab: ' + str(i[1]) + '\n'
+    return list1
 
 def deletar():
     cod = lb2.get()
@@ -82,18 +86,18 @@ fr1.grid(row=1, column=0, sticky=NSEW)
 
 #criar os widgets
 
-lb1 = Label(fr1, text='Estrutura')
-bt1 = Button(fr1, text='Cadastro', command = lambda: [fr1.grid_remove(), fr2.grid(row=0, column=1)])
-bt2 = Button(fr1, text='Listar', command = lambda: [fr1.grid_remove(), fr5.grid(row=0, column=1)])
-bt3 = Button(fr1, text='Atualizar descrição', command = lambda: [fr1.grid_remove(), fr8.grid(row=0, column=1)])
-bt4 = Button(fr1, text='Procurar Produto', command = lambda: [fr1.grid_remove(), fr7.grid(row=0, column=1)])
-bt5 = Button(fr1, text='Excluir', command = lambda: [fr1.grid_remove(), fr6.grid(row=0, column=1)])
-bt6 = Button(fr1, text='Sair')
+lb1 = Label(fr1, text='Estrutura', font="Calibri 16", pady=20)
+bt1 = Button(fr1, text='Cadastro', command = lambda: [fr1.grid_remove(), fr2.grid(row=0, column=1), fr9.grid(row=6, column=1)])
+bt2 = Button(fr1, text='Listar', command = lambda: [fr1.grid_remove(), fr5.grid(row=0, column=1), fr9.grid(row=6, column=2)])
+bt3 = Button(fr1, text='Atualizar descrição', command = lambda: [fr1.grid_remove(), fr8.grid(row=0, column=1), fr9.grid(row=6, column=1)])
+bt4 = Button(fr1, text='Procurar Produto', command = lambda: [fr1.grid_remove(), fr7.grid(row=0, column=1), fr9.grid(row=6, column=1)])
+bt5 = Button(fr1, text='Excluir', command = lambda: [fr1.grid_remove(), fr6.grid(row=0, column=1), fr9.grid(row=6, column=1)])
+bt6 = Button(fr1, text='Sair', command = root.destroy)
 
 
 #organizar os widgets
 
-lb1.grid(row=0, column=2, sticky=NSEW)
+lb1.grid(row=0, column=2, sticky=EW)
 
 bt1.grid(row=1, column=1, sticky=NSEW)
 bt2.grid(row=2, column=1, sticky=NSEW)
@@ -170,8 +174,8 @@ bt1.grid(row=6, column=1, sticky=NSEW)
 
 #frame 5
 
-lb1 = Label(fr5, text='')
-lb2 = Label(fr5, text='')
+lb1_3 = Label(fr5, text='')
+lb2_3 = Label(fr5, text='')
 bt1 = Button(fr5, text='Listar Produtos', command= listar)
 bt2 = Button(fr5, text='Listar Fabricantes', command= listar2)
 
@@ -179,8 +183,8 @@ bt2 = Button(fr5, text='Listar Fabricantes', command= listar2)
 
 bt1.grid(row=1, column=1, sticky=NSEW)
 bt2.grid(row=1, column=2, sticky=NSEW)
-lb1.grid(row=3, column=1, sticky=NSEW)
-lb2.grid(row=3, column=2, sticky=NSEW)
+lb1_3.grid(row=3, column=1, sticky=NSEW)
+lb2_3.grid(row=3, column=2, sticky=NSEW)
 
 #frame 6
 
@@ -234,6 +238,15 @@ lb3.grid(row=2, column=1, sticky=NSEW)
 lb4.grid(row=2, column=2, sticky=NSEW)
 lb5.grid(row=3, column=1, sticky=NSEW)
 lb6.grid(row=3, column=2, sticky=NSEW)
+
+#frame 9
+
+bt1 = Button(fr9, text='Voltar', command= lambda: [fr2.grid_remove(), fr1.grid(row=0, column=1),fr3.grid_remove(), fr4.grid_remove(), fr5.grid_remove(),fr6.grid_remove(),fr7.grid_remove(),fr8.grid_remove(),fr9.grid_remove()])
+
+
+#organizar os widgets 8
+
+bt1.grid(row=1, column=0, sticky=NSEW)
 
 #executar a janela
 root.mainloop()
